@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Models (large files)
+models/
+*.bin
+*.pt
+*.pth
+
+# Data (optional - keep small sample)
+data/raw/helmet/kaggle/images/
+data/vqa/
+!data/vqa/*.jsonl
+
+# Streamlit
+.streamlit/
+
+# Kaggle
+.kaggle/

@@ -1,0 +1,266 @@
+[
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers108.png",
+    "question": "画面里是否存在高处坠落风险？",
+    "answer": "画面中可以看到高处作业区防护不足，存在坠落风险。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers108.png",
+      "width": 416,
+      "height": 415,
+      "type": "hazard_overview"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers383.png",
+    "question": "图中是否有人未按规定佩戴防护用品？",
+    "answer": "图片中存在安全隐患，例如部分人员未佩戴安全帽、临边缺少防护栏等。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers383.png",
+      "width": 416,
+      "height": 416,
+      "type": "hazard_overview"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers45.png",
+    "question": "请描述施工现场潜在的危险点。",
+    "answer": "画面中可以看到高处作业区防护不足，存在坠落风险。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers45.png",
+      "width": 416,
+      "height": 416,
+      "type": "hazard_overview"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers121.png",
+    "question": "现场有没有明显违规操作？",
+    "answer": "画面中可以看到高处作业区防护不足，存在坠落风险。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers121.png",
+      "width": 416,
+      "height": 415,
+      "type": "hazard_overview"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers313.png",
+    "question": "请描述施工现场潜在的危险点。",
+    "answer": "图片中存在安全隐患，例如部分人员未佩戴安全帽、临边缺少防护栏等。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers313.png",
+      "width": 416,
+      "height": 415,
+      "type": "hazard_overview"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers230.png",
+    "question": "这张图片中有哪些安全隐患？",
+    "answer": "画面中可以看到高处作业区防护不足，存在坠落风险。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers230.png",
+      "width": 415,
+      "height": 416,
+      "type": "hazard_overview"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers343.png",
+    "question": "现场有没有明显违规操作？",
+    "answer": "图片中存在安全隐患，例如部分人员未佩戴安全帽、临边缺少防护栏等。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers343.png",
+      "width": 416,
+      "height": 415,
+      "type": "hazard_overview"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers462.png",
+    "question": "现场有没有明显违规操作？",
+    "answer": "画面中可以看到高处作业区防护不足，存在坠落风险。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers462.png",
+      "width": 416,
+      "height": 415,
+      "type": "hazard_overview"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers21.png",
+    "question": "现场是否设置了防护栏和警示标志？",
+    "answer": "现场防护和标识不完善，存在安全管理不到位的问题。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers21.png",
+      "width": 416,
+      "height": 415,
+      "type": "rule_check"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers402.png",
+    "question": "图片里所有人都戴了安全帽吗？",
+    "answer": "部分区域存在杂物堆放和临边防护不足，需要整改。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers402.png",
+      "width": 416,
+      "height": 415,
+      "type": "rule_check"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers438.png",
+    "question": "图片里所有人都戴了安全帽吗？",
+    "answer": "不是所有人都按规定佩戴了安全防护用品，需要加强管理。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers438.png",
+      "width": 415,
+      "height": 416,
+      "type": "rule_check"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers344.png",
+    "question": "施工人员穿着是否符合安全要求？",
+    "answer": "现场防护和标识不完善，存在安全管理不到位的问题。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers344.png",
+      "width": 416,
+      "height": 416,
+      "type": "rule_check"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers272.png",
+    "question": "施工人员穿着是否符合安全要求？",
+    "answer": "不是所有人都按规定佩戴了安全防护用品，需要加强管理。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers272.png",
+      "width": 416,
+      "height": 415,
+      "type": "rule_check"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers453.png",
+    "question": "现场是否设置了防护栏和警示标志？",
+    "answer": "现场防护和标识不完善，存在安全管理不到位的问题。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers453.png",
+      "width": 416,
+      "height": 415,
+      "type": "rule_check"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers13.png",
+    "question": "施工人员穿着是否符合安全要求？",
+    "answer": "不是所有人都按规定佩戴了安全防护用品，需要加强管理。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers13.png",
+      "width": 416,
+      "height": 415,
+      "type": "rule_check"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers355.png",
+    "question": "是否存在杂物堆放影响通行？",
+    "answer": "不是所有人都按规定佩戴了安全防护用品，需要加强管理。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers355.png",
+      "width": 415,
+      "height": 416,
+      "type": "rule_check"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers402.png",
+    "question": "图中有哪些需要立即整改的安全问题？",
+    "answer": "存在未佩戴安全帽、靠近临边区域作业等，需要立即采取防护措施。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers402.png",
+      "width": 416,
+      "height": 415,
+      "type": "ppe_detail"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers94.png",
+    "question": "这张图中与个人防护装备相关的问题有哪些？",
+    "answer": "个人防护装备佩戴不规范，同时现场物料摆放杂乱，需要立即整改。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers94.png",
+      "width": 416,
+      "height": 415,
+      "type": "ppe_detail"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers176.png",
+    "question": "这张图中与个人防护装备相关的问题有哪些？",
+    "answer": "个人防护装备佩戴不规范，同时现场物料摆放杂乱，需要立即整改。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers176.png",
+      "width": 416,
+      "height": 415,
+      "type": "ppe_detail"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers58.png",
+    "question": "这张图中与个人防护装备相关的问题有哪些？",
+    "answer": "存在未佩戴安全帽、靠近临边区域作业等，需要立即采取防护措施。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers58.png",
+      "width": 416,
+      "height": 415,
+      "type": "ppe_detail"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers28.png",
+    "question": "这张图中与个人防护装备相关的问题有哪些？",
+    "answer": "个人防护装备佩戴不规范，同时现场物料摆放杂乱，需要立即整改。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers28.png",
+      "width": 415,
+      "height": 416,
+      "type": "ppe_detail"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers108.png",
+    "question": "这张图中与个人防护装备相关的问题有哪些？",
+    "answer": "个人防护装备佩戴不规范，同时现场物料摆放杂乱，需要立即整改。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers108.png",
+      "width": 416,
+      "height": 415,
+      "type": "ppe_detail"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers85.png",
+    "question": "这张图中与个人防护装备相关的问题有哪些？",
+    "answer": "存在未佩戴安全帽、靠近临边区域作业等，需要立即采取防护措施。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers85.png",
+      "width": 416,
+      "height": 415,
+      "type": "ppe_detail"
+    }
+  },
+  {
+    "image_path": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers5.png",
+    "question": "图中有哪些需要立即整改的安全问题？",
+    "answer": "存在未佩戴安全帽、靠近临边区域作业等，需要立即采取防护措施。",
+    "meta": {
+      "source_image": "data\\raw\\helmet\\kaggle\\images\\hard_hat_workers5.png",
+      "width": 416,
+      "height": 415,
+      "type": "ppe_detail"
+    }
+  }
+]
