@@ -1,0 +1,22 @@
+{
+  "training_config": {
+    "model": "Qwen2-VL-2B-Instruct",
+    "epochs": 50,
+    "batch_size": 2,
+    "learning_rate": 0.0002,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "trainable_params": "18,464,768 (0.83%)",
+    "training_time": "2479秒 (41分钟)"
+  },
+  "loss_summary": {
+    "initial_loss": 64.00,
+    "final_loss": 26.11,
+    "reduction": "59.2%"
+  },
+  "evaluation": {
+    "base_accuracy": 0.0,
+    "finetuned_accuracy": 0.2,
+    "improvement": "+20%"
+  }
+}

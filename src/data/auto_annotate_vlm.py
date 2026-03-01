@@ -8,11 +8,11 @@
 
 示例用法（PowerShell）：
 
-    cd D:\vlm
+    cd D:\\vlm
     $env:DASHSCOPE_API_KEY="your-api-key"
     python -m src.data.auto_annotate_vlm `
-        --image_dir data\raw\helmet\shwd\JPEGImages `
-        --output_path data\processed\helmet_qwen_annotations.jsonl `
+        --image_dir data\\raw\\helmet\\shwd\\JPEGImages `
+        --output_path data\\processed\\helmet_qwen_annotations.jsonl `
         --model qwen-vl-max `
         --max_images 200
 """

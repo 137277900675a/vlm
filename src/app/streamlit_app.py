@@ -16,16 +16,21 @@ from __future__ import annotations
 
 import base64
 import os
+import sys
 from io import BytesIO
 from typing import List, Dict, Any, Optional
+from pathlib import Path
 
 import streamlit as st
 from PIL import Image
 from dashscope import MultiModalConversation
 import dashscope
 
-from src.data.download_helmet_dataset import prepare_shwd_dataset
-from src.data.auto_annotate_vlm import auto_annotate_directory
+# 添加项目根目录到sys.path
+project_root = Path(__file__).parent.parent.parent
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 from src.config.paths import PATHS
 
 
@@ -228,6 +233,7 @@ def render_sidebar() -> Dict[str, Any]:
         if st.sidebar.button("开始下载 SHWD 数据集", use_container_width=True):
             st.sidebar.info("正在下载并解压 SHWD 安全帽数据集...")
             try:
+                from src.data.download_helmet_dataset import prepare_shwd_dataset
                 jpeg_dir = prepare_shwd_dataset()
                 dataset_status = f"✅ 数据集已就绪：{jpeg_dir}"
             except Exception as e:
@@ -242,10 +248,9 @@ def render_sidebar() -> Dict[str, Any]:
             "最多标注图片数量", min_value=1, max_value=2000, value=200, step=50
         )
         if st.sidebar.button("开始自动标注", use_container_width=True):
-            # 使用sidebar外的info提示
             st.sidebar.info("正在调用 Qwen-VL 进行自动标注，请稍候...")
             try:
-                from src.config.paths import PATHS  # 局部导入避免循环
+                from src.data.auto_annotate_vlm import auto_annotate_directory
 
                 default_image_dir = os.path.join(
                     PATHS.raw_data_dir, "helmet", "kaggle", "images"

@@ -24,13 +24,27 @@ def load_inference_model(
     device: str = "cuda"
 ):
     """加载推理模型"""
-    print(f"🔄 加载基础模型: {base_model}")
+    # 优先使用本地ModelScope下载的模型
+    local_model_path = "models/pretrained/Qwen/Qwen2-VL-2B-Instruct"
+    if os.path.exists(local_model_path):
+        base_model = local_model_path
+        print(f"🔄 使用本地模型: {base_model}")
+    else:
+        print(f"🔄 加载基础模型: {base_model}")
     
     processor = Qwen2VLProcessor.from_pretrained(base_model)
+    
+    if torch.cuda.is_available():
+        device_map = device
+        torch_dtype = torch.bfloat16
+    else:
+        device_map = "cpu"
+        torch_dtype = torch.float32
+    
     model = Qwen2VLForConditionalGeneration.from_pretrained(
         base_model,
-        torch_dtype=torch.bfloat16,
-        device_map=device if torch.cuda.is_available() else "cpu",
+        torch_dtype=torch_dtype,
+        device_map=device_map,
     )
     
     # 加载LoRA权重(如果存在)
@@ -51,16 +65,14 @@ def inference_single_image(
     max_new_tokens: int = 256
 ) -> str:
     """单图推理"""
-    
-    # 加载图像
-    image = Image.open(image_path).convert("RGB")
+    from qwen_vl_utils import process_vision_info
     
     # 构建消息
     messages = [
         {
             "role": "user",
             "content": [
-                {"type": "image", "image_url": {"url": image_path}},
+                {"type": "image", "image": f"file://{os.path.abspath(image_path)}"},
                 {"type": "text", "text": question}
             ]
         }
@@ -68,12 +80,14 @@ def inference_single_image(
     
     # 预处理
     text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    image_inputs, video_inputs = process_vision_info(messages)
     
     inputs = processor(
         text=[text],
-        images=[image],
-        return_tensors="pt",
+        images=image_inputs,
+        videos=video_inputs,
         padding=True,
+        return_tensors="pt",
     )
     
     # 移动到设备
@@ -87,8 +101,6 @@ def inference_single_image(
             **inputs,
             max_new_tokens=max_new_tokens,
             do_sample=False,
-            temperature=None,
-            top_p=None,
         )
     
     # 解码
@@ -112,6 +124,7 @@ def inference_with_base64(
     """使用base64图像进行推理"""
     import base64
     from io import BytesIO
+    from qwen_vl_utils import process_vision_info
     
     # 解码base64
     image_data = base64.b64decode(image_base64)
@@ -130,12 +143,14 @@ def inference_with_base64(
     
     # 预处理
     text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    image_inputs, video_inputs = process_vision_info(messages)
     
     inputs = processor(
         text=[text],
-        images=[image],
-        return_tensors="pt",
+        images=image_inputs,
+        videos=video_inputs,
         padding=True,
+        return_tensors="pt",
     )
     
     # 移动到设备
@@ -166,9 +181,17 @@ def demo_cli():
     parser = argparse.ArgumentParser(description="工地安全VLM推理Demo")
     parser.add_argument("--image", type=str, required=True, help="图像路径")
     parser.add_argument("--question", type=str, required=True, help="问题")
-    parser.add_argument("--lora_path", type=str, default=None, help="LoRA权重路径")
-    parser.add_argument("--model", type=str, default="Qwen/Qwen2-VL-2B-Instruct")
+    parser.add_argument("--model", type=str, default="Qwen/Qwen2-VL-2B-Instruct", help="基础模型")
+    parser.add_argument("--lora_path", type=str, default=None, help="LoRA权重路径（可选）")
+    parser.add_argument("--use_finetuned", action="store_true", help="使用微调模型")
     args = parser.parse_args()
+    
+    # 如果指定使用微调模型但未提供路径，使用默认路径
+    if args.use_finetuned and not args.lora_path:
+        args.lora_path = "models/lora_safety"
+    # 如果指定使用微调模型但未提供路径，使用默认路径
+    if args.use_finetuned and not args.lora_path:
+        args.lora_path = "models/lora_safety"
     
     # 加载模型
     model, processor = load_inference_model(args.model, args.lora_path)
@@ -176,7 +199,8 @@ def demo_cli():
     # 推理
     print(f"\n📷 图像: {args.image}")
     print(f"❓ 问题: {args.question}")
-    print("\n🤖 回答:")
+    print(f"🤖 模型: {'微调后' if args.lora_path else 'Base'}")
+    print("\n回答:")
     
     response = inference_single_image(model, processor, args.image, args.question)
     print(response)

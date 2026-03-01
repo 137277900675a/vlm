@@ -26,6 +26,12 @@ D:\vlm\
 
 ## 快速开始
 
+### 0. 下载模型（国内镜像）
+
+```powershell
+python -m src.models.download_qwen_model --size 2B
+```
+
 ### 1. 启动前端（工地安全多模态助手）
 
 ```powershell
@@ -50,18 +56,34 @@ python -m src.training.finetune_lora ^
 
 ### 3. 推理Demo
 
+**Base模型推理：**
 ```powershell
 python -m src.inference.demo ^
-  --image path\to\site.jpg ^
+  --image data\raw\helmet\kaggle\images\hard_hat_workers1.png ^
   --question "这张图中有哪些安全隐患？"
+```
+
+**微调模型推理：**
+```powershell
+python -m src.inference.demo ^
+  --image data\raw\helmet\kaggle\images\hard_hat_workers1.png ^
+  --question "这张图中有哪些安全隐患？" ^
+  --use_finetuned
 ```
 
 ### 4. 评估
 
+**本地模型评估（推荐）：**
 ```powershell
 python -m src.evaluation.evaluate ^
   --test_data data/vqa/train.jsonl ^
-  --lora_path models/lora_safety
+  --lora_path models/lora_safety ^
+  --num_samples 50
+```
+
+**API快速测试（辅助）：**
+```powershell
+python -m src.evaluation.eval_api --compare --compare_samples 5
 ```
 
 
@@ -69,9 +91,10 @@ python -m src.evaluation.evaluate ^
 
 ## 核心代码
 
-- `src/training/finetune_lora.py` - LoRA微调脚本
-- `src/inference/demo.py` - 推理Demo
-- `src/evaluation/evaluate.py` - 评估脚本
+- `src/training/finetune_lora.py` - LoRA微调（使用本地模型）
+- `src/inference/demo.py` - 推理Demo（使用本地模型）
+- `src/evaluation/evaluate.py` - 评估脚本（使用本地模型，Base vs FT对比）
+- `src/evaluation/eval_api.py` - API快速测试（辅助工具，仅用于标注）
 - `src/app/streamlit_app.py` - Streamlit前端
 
 ## 技术参数

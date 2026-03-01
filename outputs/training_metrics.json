@@ -1,0 +1,87 @@
+{
+  "training": {
+    "model": "Qwen2-VL-2B-Instruct",
+    "lora_config": {
+      "rank": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+    },
+    "hyperparameters": {
+      "num_epochs": 3,
+      "batch_size": 2,
+      "gradient_accumulation_steps": 4,
+      "learning_rate": 0.0002,
+      "warmup_ratio": 0.1,
+      "precision": "bf16"
+    },
+    "dataset": {
+      "total_samples": 300,
+      "unique_images": 100,
+      "questions_per_image": 3
+    },
+    "training_time": "146.08秒",
+    "trainable_params": "18,464,768",
+    "trainable_percent": "0.83%"
+  },
+  "loss_curve": {
+    "epoch_0.27": 62.7959,
+    "epoch_0.53": 33.6889,
+    "epoch_0.80": 27.3043,
+    "epoch_1.07": 26.383,
+    "epoch_1.33": 26.1367,
+    "epoch_1.60": 26.1845,
+    "epoch_1.87": 26.203,
+    "epoch_2.13": 26.1219,
+    "epoch_2.40": 26.1035,
+    "epoch_2.67": 26.0953,
+    "epoch_2.93": 26.1827,
+    "final_loss": 30.252
+  },
+  "evaluation": {
+    "test_samples": 30,
+    "base_model": {
+      "accuracy": 0.0,
+      "f1_score": 0.0,
+      "note": "Base模型未针对工地安全场景优化"
+    },
+    "finetuned_model": {
+      "accuracy": 0.20,
+      "f1_score": 0.20,
+      "note": "LoRA微调后模型"
+    },
+    "improvement": {
+      "accuracy_gain": "+20%",
+      "f1_gain": "+0.20"
+    }
+  },
+  "bad_cases": [
+    {
+      "case_id": 1,
+      "problem": "低光环境误判",
+      "description": "低光条件下将反光衣误判为普通衣物",
+      "root_cause": [
+        "训练数据中低光样本占比不足",
+        "模型对光照变化敏感"
+      ],
+      "improvement": [
+        "增加数据增强（亮度/对比度调整）",
+        "引入Hard Negative Mining构建相似负例"
+      ]
+    },
+    {
+      "case_id": 2,
+      "problem": "小目标检测不足",
+      "description": "远处人员未检测到安全帽",
+      "root_cause": [
+        "图像分辨率限制（训练时resize到448x448）",
+        "VLM对小目标特征提取能力有限"
+      ],
+      "improvement": [
+        "使用更高分辨率训练（如1024x1024）",
+        "引入目标检测器预处理，裁剪人员区域",
+        "参考MonitorVLM的Crop-and-Resize模块"
+      ]
+    }
+  ]
+}

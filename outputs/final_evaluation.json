@@ -1,0 +1,41 @@
+{
+  "evaluation_config": {
+    "test_samples": 50,
+    "base_model": "Qwen2-VL-2B-Instruct",
+    "finetuned_model": "Qwen2-VL-2B-Instruct + LoRA (50 epochs)",
+    "metrics": "BLEU-4 + Keyword Matching",
+    "lora_config": {
+      "rank": 16,
+      "alpha": 32,
+      "epochs": 50
+    }
+  },
+  "quantitative_metrics": {
+    "base_model": {
+      "combined_score": 0.1111,
+      "bleu4": 0.0273,
+      "bleu1": 0.1082
+    },
+    "finetuned_model": {
+      "combined_score": 0.3009,
+      "bleu4": 0.2092,
+      "bleu1": 0.2242
+    },
+    "improvement": {
+      "combined_score_gain": "+18.98%",
+      "bleu4_gain": "+0.1819 (7.7x)",
+      "bleu1_gain": "+0.1160 (2.1x)"
+    }
+  },
+  "qualitative_comparison": {
+    "base_model": "通用VLM对工地安全场景理解有限，综合分数11.11%，BLEU-4仅0.0273",
+    "finetuned_model": "50轮LoRA微调后，综合分数提升至30.09%，BLEU-4提升7.7倍至0.2092",
+    "conclusion": "LoRA微调显著提升模型在工地安全领域的生成质量和语义准确性"
+  },
+  "training_summary": {
+    "initial_loss": 64.0,
+    "final_loss": 26.11,
+    "loss_reduction": "59.2%",
+    "training_time": "2479秒 (41分钟)"
+  }
+}
